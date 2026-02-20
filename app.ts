@@ -4,7 +4,6 @@ import express from "express";
 import { router } from "./src/routes";
 import { Config } from "./src/config/config";
 
-
 const app = express();
 
 app.use(express.json());
