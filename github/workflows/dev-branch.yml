@@ -1,7 +1,7 @@
 on:
   pull_request:
     branches:
-      - dev
+      - develop
 
 jobs:
   server-format-check:
