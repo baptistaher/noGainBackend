@@ -9,5 +9,5 @@ node_modules
 
 .docker/postgres/data
 package-lock.json
-
+pnpm-lock.yaml
 generated
