@@ -1,4 +1,3 @@
-
 import { defineConfig } from "prisma/config";
 import { Config } from "./src/config/config";
 

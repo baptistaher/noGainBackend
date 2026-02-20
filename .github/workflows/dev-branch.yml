@@ -3,6 +3,10 @@ on:
     branches:
       - develop
 
+permissions:
+  contents: write
+
+
 jobs:
   server-format-check:
     name: Format Check
@@ -10,16 +14,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
+
+      
+
       - uses: actions/setup-node@v6
         with:
           node-version: 24
           # cache: 'npm'
           package-manager-cache: false
           # cache-dependency-path: server/package-lock.json
+
       - uses: pnpm/action-setup@v4
         with:
           version: 10
-      - run: pnpm install
+
+      - run: pnpm install 
       - run: pnpm run format
-      # - run: pnpm run lint
+
+
 
