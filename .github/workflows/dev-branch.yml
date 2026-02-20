@@ -3,6 +3,10 @@ on:
     branches:
       - develop
 
+permissions:
+  contents: write
+
+
 jobs:
   server-format-check:
     name: Format Check
@@ -24,5 +28,6 @@ jobs:
     
       - run: pnpm install --frozen-lockfile
       - run: pnpm run format
+
 
 
