@@ -1,4 +1,13 @@
 node_modules
-
 .env
 
+
+
+.pnpm-store
+
+.pnpm-lock.yaml
+
+.docker/postgres/data
+package-lock.json
+
+generated

@@ -1,0 +1,14 @@
+FROM node:24-alpine
+
+
+# bash
+# RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
+# RUN corepack enable && corepack prepare pnpm@latest --activate 
+RUN npm install -g pnpm
+
+WORKDIR /home/node/app
+USER node
+
+
+
+CMD ["tail", "-f", "/dev/null"]
