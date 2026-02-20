@@ -11,7 +11,7 @@
 		"test:watch": "jest --watchAll",
 		"prisma:db:seed": "npx prisma db seed",
 		"format": "biome format --write .",
-		"format:check": "biome format .",
+		"format:check": "biome format --check .",
 		"lint": "biome lint ."
 	},
 	"dependencies": {
