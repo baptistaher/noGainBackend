@@ -16,5 +16,8 @@ jobs:
           # cache: 'npm'
           package-manager-cache: false
           # cache-dependency-path: server/package-lock.json
+      - uses: pnpm/action-setup@v6
       - run: pnpm install
-      - run: pnpm run format
+      - run: pnpm run format:check
+      - run: pnpm run lint
+
