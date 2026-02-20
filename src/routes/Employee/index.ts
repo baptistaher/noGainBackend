@@ -1,9 +1,9 @@
 import { Router } from "express";
 
 import {
-  createEmployeeController,
-  getAllEmployeeController,
-  getEmployeeByIdController,
+	createEmployeeController,
+	getAllEmployeeController,
+	getEmployeeByIdController,
 } from "../../controllers/Employee";
 
 const employeeRoutes = Router();
