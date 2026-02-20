@@ -10,8 +10,8 @@
 		"test": "jest",
 		"test:watch": "jest --watchAll",
 		"prisma:db:seed": "npx prisma db seed",
-		"format:check": "npx @biomejs/biome check --write",
-		"format": "npx @biomejs/biome format --write"
+		"format": "biome format --write",
+		"format:check": "biome check --write"
 	},
 	"dependencies": {
 		"@prisma/adapter-pg": "^7.4.1",

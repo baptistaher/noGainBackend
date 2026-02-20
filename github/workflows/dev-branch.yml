@@ -1,0 +1,20 @@
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  server-format-check:
+    name: Format Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          # cache: 'npm'
+          package-manager-cache: false
+          # cache-dependency-path: server/package-lock.json
+      - run: pnpm install
+      - run: pnpm run format

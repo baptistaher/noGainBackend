@@ -39,14 +39,17 @@
 		"source.fixAll.biome": "always",
 		"source.format.biome": "always"
 	},
-	"terminal.integrated.defaultProfile.linux": "zsh",
-	"terminal.integrated.profiles.linux": {
-		"zsh": {
-			"path": "/usr/bin/zsh",
-			"icon": "terminal-linux"
-		}
-	},
+	// "terminal.integrated.defaultProfile.linux": "zsh",
+	// "terminal.integrated.profiles.linux": {
+	// 	"zsh": {
+	// 		"path": "/usr/bin/zsh",
+	// 		"icon": "terminal-linux"
+	// 	}
+	// },
 	"[typescript]": {
 		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
 	}
 }
