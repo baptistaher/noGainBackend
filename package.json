@@ -11,8 +11,8 @@
 		"test:watch": "jest --watchAll",
 		"prisma:db:seed": "npx prisma db seed",
 		"format": "biome format --write .",
-    "format:check": "biome format .",
-    "lint": "biome lint ."
+		"format:check": "biome format .",
+		"lint": "biome lint ."
 	},
 	"dependencies": {
 		"@prisma/adapter-pg": "^7.4.1",

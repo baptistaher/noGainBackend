@@ -1,3 +1,1 @@
-
-
-const nodeEnv = process.env.NODE_ENV
+const nodeEnv = process.env.NODE_ENV;
