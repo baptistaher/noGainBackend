@@ -1,7 +1,8 @@
-import { join } from "node:path";
 import dotenv from "dotenv";
-
 import { object, string } from "zod";
+
+import { join } from "node:path";
+
 const nodeEnv = process.env.NODE_ENV;
 
 dotenv.config({

@@ -1,12 +1,8 @@
-// import { Employee } from './../../../node_modules/.prisma/client/index.d';
-
 import { Roles } from "@prisma/client";
 import { hash } from "bcryptjs";
+
 import { prisma } from "../../database/prismaClient";
-import {
-	type CreateEmployeeRequestDTO,
-	CreateEmployeeResponseDTO,
-} from "../../dto/Employee/Create";
+import { type CreateEmployeeRequestDTO } from "../../dto/Employee/Create";
 
 export class Employee {
 	static async create(data: CreateEmployeeRequestDTO) {
@@ -30,6 +26,7 @@ export class Employee {
 
 			return newEmployee;
 		} catch (error) {
+			console.error(error);
 			throw new Error("problem with db");
 		}
 	}

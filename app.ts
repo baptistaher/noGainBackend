@@ -1,9 +1,9 @@
 import bodyParser from "body-parser";
-
 import express from "express";
-import { router } from "./src/routes";
+
 import { Config } from "./src/config/config";
 import logger from "./src/logger/logger";
+import { router } from "./src/routes";
 
 const app = express();
 
