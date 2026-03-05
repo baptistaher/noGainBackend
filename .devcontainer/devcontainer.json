@@ -35,7 +35,7 @@
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
-			"extensions": ["biomejs.biome", "prisma.prisma"]
+			"extensions": ["biomejs.biome", "prisma.prisma", "redhat.vscode-yaml", "docker.docker"]
 		}
 	}
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.

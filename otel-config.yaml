@@ -1,0 +1,26 @@
+receivers:
+  otlp:
+    protocols:
+      http:
+      grpc:
+
+exporters:
+  otlp_grpc/jaeger:
+    endpoint: jaeger:14268
+    tls:
+      insecure: true
+  debug:
+    verbosity: detailed
+  # jaeger:
+  #   endpoint: "http://jaeger:14268/api/traces"
+  # logging:
+  #   loglevel: debug
+
+service:
+  pipelines:
+    traces:
+      receivers: [jaeger]
+      exporters: [debug]
+    # metrics:
+    #   receivers: [otlp]
+    #   exporters: [debug]

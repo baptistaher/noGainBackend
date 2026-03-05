@@ -1,6 +1,9 @@
+import { trace } from "@opentelemetry/api";
 import { type Request, type Response } from "express";
 
 import { Employee } from "../../models/Employee";
+
+const tracer = trace.getTracer("employer-controller");
 
 export const createEmployeeController = async (request: Request, response: Response) => {
 	try {
