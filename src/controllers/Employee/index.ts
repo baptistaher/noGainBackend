@@ -19,12 +19,15 @@ export const createEmployeeController = async (request: Request, response: Respo
 };
 
 export const getAllEmployeeController = async (_request: Request, response: Response) => {
+	const span = tracer.startSpan("getAllEmployeer");
 	try {
 		const result = await Employee.getAll();
 
+		span.end();
 		return response.status(200).json(result);
 	} catch (error) {
 		console.error(error);
+		span.end();
 		return response.status(500).json("Problem connection");
 	}
 };

@@ -2,25 +2,33 @@ receivers:
   otlp:
     protocols:
       http:
-      grpc:
+        endpoint: "localhost:4318"
+      # grpc:
+      #   endpoint: 0.0.0.0:4317
 
 exporters:
-  otlp_grpc/jaeger:
-    endpoint: jaeger:14268
+  otlp/tempo:
+    endpoint: "http://tempo:3200"
     tls:
       insecure: true
-  debug:
-    verbosity: detailed
-  # jaeger:
-  #   endpoint: "http://jaeger:14268/api/traces"
-  # logging:
-  #   loglevel: debug
+
+  prometheus:
+    endpoint: "0.0.0.0:8889"
+
+
+processors:
+  batch:
+    # send_batch_max_size: 100
+    # timeout: 3s
 
 service:
   pipelines:
     traces:
-      receivers: [jaeger]
-      exporters: [debug]
-    # metrics:
-    #   receivers: [otlp]
-    #   exporters: [debug]
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp/tempo]
+
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [prometheus]
