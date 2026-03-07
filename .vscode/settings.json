@@ -1,11 +1,5 @@
 {
-	"cSpell.words": [
-		"lomba",
-		"nogain",
-		"PERSONALTRAINER",
-		"trainingplan",
-		"trainingplans"
-	],
+	"cSpell.words": ["lomba", "nogain", "PERSONALTRAINER", "trainingplan", "trainingplans"],
 	"workbench.colorCustomizations": {
 		"activityBar.activeBorder": "#422c74",
 		"activityBar.activeBackground": "#2f7c47",

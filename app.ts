@@ -1,10 +1,11 @@
 import "./src/open-telemetry/instrumentation";
-import {  trace } from "@opentelemetry/api";
+import { trace } from "@opentelemetry/api";
 import bodyParser from "body-parser";
 import express from "express";
-import {  requestCounter, requestDuration } from "./src/open-telemetry/metrics";
+
 import { Config } from "./src/config/config";
 import logger from "./src/logger/logger";
+import { requestCounter, requestDuration } from "./src/open-telemetry/metrics";
 import { router } from "./src/routes";
 
 const tracer = trace.getTracer("nogain-api", "1.0");
@@ -18,13 +19,17 @@ app.use(bodyParser.json());
 
 // --- Middleware to track metrics ---
 app.use((req, res, next) => {
-  const start = Date.now();
-  res.on("finish", () => {
-    const duration = Date.now() - start;
-    requestCounter.add(1, { route: req.path, method: req.method, status: res.statusCode });
-    requestDuration.record(duration, { route: req.path, method: req.method, status: res.statusCode });
-  });
-  next();
+	const start = Date.now();
+	res.on("finish", () => {
+		const duration = Date.now() - start;
+		requestCounter.add(1, { route: req.path, method: req.method, status: res.statusCode });
+		requestDuration.record(duration, {
+			route: req.path,
+			method: req.method,
+			status: res.statusCode,
+		});
+	});
+	next();
 });
 
 // const expressInstrumentation = new ExpressInstrumentation({
