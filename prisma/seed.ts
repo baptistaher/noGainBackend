@@ -1,5 +1,6 @@
 import { PrismaClient, Roles } from "@prisma/client";
 import { hash } from "bcryptjs";
+
 import { employees } from "./data/employee";
 import { manager } from "./data/manager";
 

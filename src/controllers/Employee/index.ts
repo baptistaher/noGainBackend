@@ -1,10 +1,11 @@
-import type { Request, Response } from "express";
+import { trace } from "@opentelemetry/api";
+import { type Request, type Response } from "express";
+
 import { Employee } from "../../models/Employee";
 
-export const createEmployeeController = async (
-	request: Request,
-	response: Response,
-) => {
+const tracer = trace.getTracer("employer-controller");
+
+export const createEmployeeController = async (request: Request, response: Response) => {
 	try {
 		const data = request.body;
 
@@ -12,27 +13,26 @@ export const createEmployeeController = async (
 
 		return response.status(201).json(result);
 	} catch (error) {
+		console.error(error);
 		return response.status(500).json("Problem connection");
 	}
 };
 
-export const getAllEmployeeController = async (
-	request: Request,
-	response: Response,
-) => {
+export const getAllEmployeeController = async (_request: Request, response: Response) => {
+	const span = tracer.startSpan("getAllEmployeer");
 	try {
 		const result = await Employee.getAll();
 
+		span.end();
 		return response.status(200).json(result);
 	} catch (error) {
+		console.error(error);
+		span.end();
 		return response.status(500).json("Problem connection");
 	}
 };
 
-export const getEmployeeByIdController = async (
-	request: Request,
-	response: Response,
-) => {
+export const getEmployeeByIdController = async (request: Request, response: Response) => {
 	try {
 		const { id } = request.params;
 
@@ -40,6 +40,7 @@ export const getEmployeeByIdController = async (
 
 		return response.status(201).json(result);
 	} catch (error) {
+		console.error(error);
 		return response.status(500).json("Problem connection");
 	}
 };
