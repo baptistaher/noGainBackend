@@ -1,5 +1,11 @@
 {
-	"cSpell.words": ["lomba", "nogain", "PERSONALTRAINER", "trainingplan", "trainingplans"],
+	"cSpell.words": [
+		"lomba",
+		"nogain",
+		"PERSONALTRAINER",
+		"trainingplan",
+		"trainingplans"
+	],
 	"workbench.colorCustomizations": {
 		"activityBar.activeBorder": "#422c74",
 		"activityBar.activeBackground": "#2f7c47",
@@ -32,13 +38,7 @@
 		"source.fixAll.biome": "explicit",
 		"source.format.biome": "explicit"
 	},
-	// "terminal.integrated.defaultProfile.linux": "zsh",
-	// "terminal.integrated.profiles.linux": {
-	// 	"zsh": {
-	// 		"path": "/usr/bin/zsh",
-	// 		"icon": "terminal-linux"
-	// 	}
-	// },
+	"terminal.integrated.defaultProfile.linux": "zsh",
 	"[typescript]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},

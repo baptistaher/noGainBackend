@@ -7,13 +7,16 @@ receivers:
       #   endpoint: 0.0.0.0:4317
 
 exporters:
-  otlp/tempo:
-    endpoint: "http://tempo:3200"
+  otlp_http:               # <-- type must be otlp_http (not tempo)
+    endpoint: "http://tempo:4318"
     tls:
       insecure: true
 
   prometheus:
-    endpoint: "0.0.0.0:8889"
+      endpoint: "0.0.0.0:8889"
+
+  # prometheus:
+  #   endpoint: "0.0.0.0:8889"
 
 
 processors:
@@ -24,9 +27,9 @@ processors:
 service:
   pipelines:
     traces:
-      receivers: [otlp]
+      receivers: [otlp] 
       processors: [batch]
-      exporters: [otlp/tempo]
+      exporters: [otlp_http]
 
     metrics:
       receivers: [otlp]
