@@ -8,6 +8,7 @@ const config: Config = {
 	transform: {
 		"^.+\\.(t|j)s$": "@swc/jest",
 	},
+	transformIgnorePatterns: ["node_modules/"],
 	collectCoverageFrom: ["**/*.(t|j)s"],
 	coverageDirectory: "../coverage",
 	moduleNameMapper: {
