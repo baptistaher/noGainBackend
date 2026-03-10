@@ -14,6 +14,7 @@
 		"format:check": "biome format --check .",
 		"lint": "biome lint .",
 		"format:full": "biome check --write",
+		"format:ci": "biome ci .",
 		"prepare": "husky install"
 	},
 	"dependencies": {
